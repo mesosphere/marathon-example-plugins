@@ -5,13 +5,13 @@ import mesosphere.marathon.plugin.auth.Identity;
 
 class JavaIdentity implements Identity {
 
-	private final String name;
+    private final String name;
 
-	public JavaIdentity(String name) {
-		this.name = name;
-	}
+    public JavaIdentity(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 }

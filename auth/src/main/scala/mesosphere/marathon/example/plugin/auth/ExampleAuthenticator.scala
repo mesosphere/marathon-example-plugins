@@ -16,7 +16,7 @@ class ExampleAuthenticator extends Authenticator with PluginConfiguration {
   override def handleNotAuthenticated(request: HttpRequest, response: HttpResponse): Unit = {
     response.status(401)
     response.header("WWW-Authenticate", """Basic realm="Marathon Example Authentication"""")
-    response.body("application/json", """{"problem": "Not Authenticated!"}""".getBytes("UTF-8"))
+    response.body("application/json", """{"message": "Not Authenticated!"}""".getBytes("UTF-8"))
   }
 
   override def authenticate(request: HttpRequest): Future[Option[Identity]] = Future {
