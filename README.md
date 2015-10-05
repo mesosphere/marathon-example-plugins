@@ -9,17 +9,23 @@ The Marathon plugin interface is needed to compile this package.
 To build the package run this command:
 `sbt clean pack`
 This will compile and package all plugins.
-The resulting jars with all dependencies are put into the directory: `target/pack/lib`
+The resulting jars with all dependencies are put into the directory: `target/pack/lib`.
 This directory can be used directly as plugin directory for Marathon.
 
-## Plugins 
+# Using a Plugin
+1. Run `sbt clean pack` in the repository's root directory.
+2. Locate the Plugin configuration file (look at the Plugin's README.md
+   for a hint)).
+3. Start Marathon with the following flags: `--plugin_dir target/pack/lib --plugin_conf <path_to_the_plugin_config_file>`
 
-### Plugin auth
+## Plugins
 
-Example Authentication and Authorization plugin (Scala based).
+### auth
+
+Example Authentication and Authorization Plugin (Scala based).
 See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/auth/README.md) in the auth plugin directory.
 
-### Plugin javaauth
+### javaauth
 
-Example Authentication and Authorization plugin (Java based).
+Example Authentication and Authorization Plugin (Java based).
 See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/javaauth/README.md) in the javaauth directory.
