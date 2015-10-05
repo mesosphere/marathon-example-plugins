@@ -1,0 +1,50 @@
+{
+  "plugins": [
+    {
+      "plugin": "mesosphere.marathon.plugin.auth.Authorizer",
+      "implementation": "mesosphere.marathon.example.plugin.auth.ExampleAuthorizer"
+    },
+    {
+      "plugin": "mesosphere.marathon.plugin.auth.Authenticator",
+      "implementation": "mesosphere.marathon.example.plugin.auth.ExampleAuthenticator",
+      "configuration": {
+        "users": [
+          {
+            "user": "ernie",
+            "password" : "ernie",
+            "permissions": [
+              { "allowed": "create", "on": "/dev/" },
+              { "allowed": "update", "on": "/dev/" },
+              { "allowed": "delete", "on": "/dev/" },
+              { "allowed": "view", "on": "/dev/" },
+              { "allowed": "killTask", "on": "/dev/" }
+            ]
+          },
+          {
+            "user": "bert",
+            "password" : "bert",
+            "permissions": [
+              { "allowed": "create", "on": "/prod/" },
+              { "allowed": "update", "on": "/prod/" },
+              { "allowed": "delete", "on": "/prod/" },
+              { "allowed": "view", "on": "/prod/" },
+              { "allowed": "killTask", "on": "/prod/" }
+            ]
+          },
+          {
+            "user": "admin",
+            "password" : "admin",
+            "permissions": [
+              { "allowed": "create", "on": "/" },
+              { "allowed": "update", "on": "/" },
+              { "allowed": "delete", "on": "/" },
+              { "allowed": "view", "on": "/" },
+              { "allowed": "killTask", "on": "/" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+
