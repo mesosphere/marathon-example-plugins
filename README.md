@@ -3,7 +3,6 @@
 ## Marathon Plugin Dependency
 
 The Marathon plugin interface is needed to compile this package.
-Checkout Marathon and run `sbt plugin-interface/publishLocal`
 
 ## Package
 
@@ -17,10 +16,10 @@ This directory can be used directly as plugin directory for Marathon.
 
 ### Plugin auth
 
-Example Authentication and Authorization plugin (scala based).
-See README.md in the project directory.
+Example Authentication and Authorization plugin (Scala based).
+See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/auth/README.md) in the auth plugin directory.
 
 ### Plugin javaauth
 
-Example Authentication and Authorization plugin (java based).
-See README.md in the project directory.
+Example Authentication and Authorization plugin (Java based).
+See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/javaauth/README.md) in the javaauth directory.
