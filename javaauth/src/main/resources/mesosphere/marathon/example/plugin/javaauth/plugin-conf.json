@@ -1,13 +1,13 @@
 {
-  "plugins": [
-    {
+  "plugins": {
+    "authorization": {
       "plugin": "mesosphere.marathon.plugin.auth.Authorizer",
       "implementation": "mesosphere.marathon.example.plugin.javaauth.JavaAuthorizer"
     },
-    {
+    "authentication": {
       "plugin": "mesosphere.marathon.plugin.auth.Authenticator",
       "implementation": "mesosphere.marathon.example.plugin.javaauth.JavaAuthenticator"
     }
-  ]
+  }
 }
 

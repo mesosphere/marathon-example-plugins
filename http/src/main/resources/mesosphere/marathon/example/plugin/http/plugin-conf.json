@@ -1,0 +1,14 @@
+{
+  "plugins": {
+    "webjar": {
+      "plugin": "mesosphere.marathon.plugin.http.HttpRequestHandler",
+      "implementation": "mesosphere.marathon.example.plugin.http.WebJarHandler",
+      "tags": ["webjar", "test"],
+      "info": {
+        "test": true,
+        "arr": [1,2,3,4,5,6]
+      }
+    }
+  }
+}
+
