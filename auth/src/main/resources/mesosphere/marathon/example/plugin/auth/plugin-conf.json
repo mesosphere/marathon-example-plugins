@@ -1,17 +1,17 @@
 {
-  "plugins": [
-    {
+  "plugins": {
+    "authorization": {
       "plugin": "mesosphere.marathon.plugin.auth.Authorizer",
       "implementation": "mesosphere.marathon.example.plugin.auth.ExampleAuthorizer"
     },
-    {
+    "authentication": {
       "plugin": "mesosphere.marathon.plugin.auth.Authenticator",
       "implementation": "mesosphere.marathon.example.plugin.auth.ExampleAuthenticator",
       "configuration": {
         "users": [
           {
             "user": "ernie",
-            "password" : "ernie",
+            "password": "ernie",
             "permissions": [
               { "allowed": "create", "on": "/dev/" },
               { "allowed": "update", "on": "/dev/" },
@@ -22,7 +22,7 @@
           },
           {
             "user": "bert",
-            "password" : "bert",
+            "password": "bert",
             "permissions": [
               { "allowed": "create", "on": "/prod/" },
               { "allowed": "update", "on": "/prod/" },
@@ -33,7 +33,7 @@
           },
           {
             "user": "admin",
-            "password" : "admin",
+            "password": "admin",
             "permissions": [
               { "allowed": "create", "on": "/" },
               { "allowed": "update", "on": "/" },
@@ -45,6 +45,6 @@
         ]
       }
     }
-  ]
+  }
 }
 
