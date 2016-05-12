@@ -6,12 +6,12 @@ import play.api.libs.functional.syntax._
 import play.api.libs.json._
 
 
-case class ExampleIdentity(username: String, password: String, permissions: Set[Permission[_]]) extends Identity {
+case class ExampleIdentity(username: String, password: String, permissions: Seq[Permission]) extends Identity {
   val log = Logger.getLogger(classOf[ExampleIdentity])
 
-  def isAllowed[Resource](action: AuthorizedAction[Resource], resource: Resource): Boolean = {
+  def isAllowed[R](action: AuthorizedAction[R], resource: R): Boolean = {
     val permit = permissions.find { permission =>
-      permission.eligible(action) && permission.asInstanceOf[Permission[Resource]].isAllowed(resource)
+      permission.eligible(action) && permission.isAllowed(resource)
     }
     permit match {
       case Some(p) => log.info(s"Found permit: $p")
@@ -25,7 +25,7 @@ object ExampleIdentity {
   implicit val identityRead: Reads[ExampleIdentity] = (
     (__ \ "user").read[String] ~
     (__ \ "password").read[String] ~
-    (__ \ "permissions").read[Set[PathPermission]]
-  ) ((name, pass, permission) => ExampleIdentity(name, pass, permission.asInstanceOf[Set[Permission[_]]]))
+    (__ \ "permissions").read[Seq[PathPermission]]
+  ) ((name, pass, permissions) => ExampleIdentity(name, pass, permissions))
 }
 
