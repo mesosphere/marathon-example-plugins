@@ -1,0 +1,14 @@
+{
+  "plugins": {
+    "envVarExtender": {
+      "plugin": "mesosphere.marathon.plugin.task.RunSpecTaskProcessor",
+      "implementation": "mesosphere.marathon.example.plugin.env.envVarExtenderPlugin",
+      "configuration": {
+        "env": {
+            "foo": "bar",
+            "key": "value"
+        }
+      }
+    }
+  }
+}
