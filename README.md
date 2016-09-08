@@ -29,3 +29,8 @@ See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/mast
 
 Example Authentication and Authorization Plugin (Java based).
 See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/javaauth/README.md) in the javaauth directory.
+
+### env
+
+Example Environment Variables Configuration.
+See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/env/README.md) in the env plugin directory.
