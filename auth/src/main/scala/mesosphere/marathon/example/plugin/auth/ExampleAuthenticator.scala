@@ -43,7 +43,7 @@ class ExampleAuthenticator extends Authenticator with PluginConfiguration {
 
   private var identities = Map.empty[String, ExampleIdentity]
 
-  override def initialize(configuration: JsObject): Unit = {
+  override def initialize(marathonInfo: Map[String, Any], configuration: JsObject): Unit = {
     //read all identities from the configuration
     identities = (configuration \ "users").as[Seq[ExampleIdentity]].map(id => id.username -> id).toMap
   }
