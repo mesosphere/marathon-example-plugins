@@ -1,6 +1,6 @@
 package mesosphere.marathon.example.plugin.auth
 
-import mesosphere.marathon.plugin.AppDefinition
+import mesosphere.marathon.plugin.RunSpec
 import mesosphere.marathon.plugin.Group
 import mesosphere.marathon.plugin.auth._
 import play.api.libs.functional.syntax._
@@ -14,10 +14,10 @@ trait Permission {
 object Permission {
 
   private def actionByName(name: String): Seq[AuthorizedAction[_]] = name match {
-    case "create" => Seq(CreateApp, CreateGroup)
-    case "update" => Seq(UpdateApp, UpdateGroup)
-    case "delete" => Seq(DeleteApp, DeleteGroup)
-    case "view" => Seq(ViewApp, ViewGroup)
+    case "create" => Seq(CreateRunSpec, CreateGroup)
+    case "update" => Seq(UpdateRunSpec, UpdateGroup)
+    case "delete" => Seq(DeleteRunSpec, DeleteGroup)
+    case "view" => Seq(ViewRunSpec, ViewGroup)
   }
 
   implicit lazy val permissionReads: Reads[PathPermission] = (
@@ -31,7 +31,7 @@ case class PathPermission(allowed: Seq[AuthorizedAction[_]], on: String) extends
 
   override def eligible[R](requested: AuthorizedAction[R]): Boolean = allowed.contains(requested)
   override def isAllowed[R](resource: R): Boolean = resource match {
-    case app: AppDefinition => app.id.toString.startsWith(on)
+    case app: RunSpec => app.id.toString.startsWith(on)
     case group: Group => group.id.toString.startsWith(on)
     case _ => false
   }
