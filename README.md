@@ -34,3 +34,8 @@ See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/mast
 
 Example Environment Variables Configuration.
 See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/env/README.md) in the env plugin directory.
+
+### label
+
+Example validation of runspec for specific labels.
+See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/label/README.md) in the label plugin directory.
