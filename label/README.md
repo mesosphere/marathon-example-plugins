@@ -1,6 +1,7 @@
 # Label Example Plugin
 
-Checks the container labels for a company=Mesosphere.
+Checks the container labels for labels known to be DCOS Framework services and rejects them.
+For this example it includes "DCOS_PACKAGE_FRAMEWORK_NAME" and "DCOS_SERVICE_NAME".
 
 ## Usage
 
