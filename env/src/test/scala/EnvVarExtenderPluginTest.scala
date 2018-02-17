@@ -1,6 +1,6 @@
 package mesosphere.marathon.example.plugin.env
 
-import mesosphere.marathon.plugin.RunSpec
+import mesosphere.marathon.plugin.ApplicationSpec
 import org.apache.mesos.Protos
 import org.scalatest.{FlatSpec, Matchers}
 import play.api.libs.json.{JsObject, Json}
@@ -14,9 +14,9 @@ class EnvVarExtenderPluginTest extends FlatSpec with Matchers {
 
   "Applying the plugin" should "work" in {
     val f = new Fixture
-    val runSpec: RunSpec = null
+    val runSpec: ApplicationSpec = null
     val builder = Protos.TaskInfo.newBuilder()
-    f.envVarExtender(runSpec, builder)
+    f.envVarExtender.taskInfo(runSpec, builder)
     builder.getCommand.getEnvironment.getVariablesList.get(0).getName should be("foo")
   }
 

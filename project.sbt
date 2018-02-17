@@ -3,7 +3,7 @@ organization in Global := "mesosphere.marathon"
 
 name in Global := "example-plugins"
 
-scalaVersion in Global := "2.11.11"
+scalaVersion in Global := "2.12.4"
 
 resolvers += Resolver.sonatypeRepo("releases")
 

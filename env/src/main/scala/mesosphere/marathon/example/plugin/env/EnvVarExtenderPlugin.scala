@@ -1,8 +1,10 @@
 package mesosphere.marathon.example.plugin.env
 
+import mesosphere.marathon.plugin.{ApplicationSpec, PodSpec}
 import mesosphere.marathon.plugin.task._
 import mesosphere.marathon.plugin.plugin.PluginConfiguration
 import org.apache.mesos.Protos
+import org.apache.mesos.Protos.{ExecutorInfo, TaskGroupInfo, TaskInfo}
 
 class EnvVarExtenderPlugin extends RunSpecTaskProcessor with PluginConfiguration {
   private[env] var envVariables = Map.empty[String, String]
@@ -11,7 +13,7 @@ class EnvVarExtenderPlugin extends RunSpecTaskProcessor with PluginConfiguration
     envVariables = (configuration \ "env").as[Map[String, String]]
   }
 
-  def apply(runSpec: mesosphere.marathon.plugin.RunSpec, builder: org.apache.mesos.Protos.TaskInfo.Builder): Unit = {
+  override def taskInfo(appSpec: ApplicationSpec, builder: TaskInfo.Builder): Unit = {
     val envBuilder = builder.getCommand.getEnvironment.toBuilder
     envVariables.foreach {
       case (key, value) =>
@@ -24,4 +26,6 @@ class EnvVarExtenderPlugin extends RunSpecTaskProcessor with PluginConfiguration
     commandBuilder.setEnvironment(envBuilder)
     builder.setCommand(commandBuilder)
   }
+
+  override def taskGroup(podSpec: PodSpec, executor: ExecutorInfo.Builder, taskGroup: TaskGroupInfo.Builder): Unit = ???
 }
