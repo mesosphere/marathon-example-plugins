@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "executorIdExtender": {
+      "plugin": "mesosphere.marathon.plugin.task.RunSpecTaskProcessor",
+      "implementation": "mesosphere.marathon.example.plugin.executorid.ExecutorIdExtenderPlugin",
+      "configuration": {
+      }
+    }
+  }
+}

@@ -39,3 +39,7 @@ See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/mast
 
 Example validation of runspec for specific labels.
 See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/label/README.md) in the label plugin directory.
+
+### executorid
+Example plugin to set the executor Id.
+See [README.md](https://github.com/mesosphere/marathon-example-plugins/blob/master/executorid/README.md) in the executorid plugin directory.
