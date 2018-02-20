@@ -36,7 +36,10 @@ case class FakeAppSpec(
     env: Map[String, EnvVarValue] = Map.empty,
     labels: Map[String, String] = Map.empty,
     acceptedResourceRoles: Set[String] = Set.empty,
-    secrets: Map[String, Secret] = Map.empty
+    secrets: Map[String, Secret] = Map.empty,
+    networks: Seq[NetworkSpec] = Seq.empty,
+    volumeMounts: Seq[VolumeMountSpec] = Seq.empty,
+    volumes: Seq[VolumeSpec] = Seq.empty
   ) extends ApplicationSpec
 
 
@@ -47,5 +50,7 @@ case class FakePodSpec(
     env: Map[String, EnvVarValue] = Map.empty,
     containers: Seq[ContainerSpec] = Seq.empty,
     networks: Seq[NetworkSpec] = Seq.empty,
-    labels: Map[String, String] = Map.empty
+    labels: Map[String, String] = Map.empty,
+    volumeMounts: Seq[VolumeMountSpec] = Seq.empty,
+    volumes: Seq[VolumeSpec] = Seq.empty
   ) extends PodSpec

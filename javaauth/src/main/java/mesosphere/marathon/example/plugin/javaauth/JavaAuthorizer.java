@@ -35,7 +35,7 @@ public class JavaAuthorizer implements Authorizer {
     }
 
     @Override
-    public void handleNotAuthorized(Identity principal, HttpRequest request, HttpResponse response) {
+    public void handleNotAuthorized(Identity principal, HttpResponse response) {
         response.status(403);
         response.body("application/json", "{\"problem\": \"Not Authorized to perform this action!\"}".getBytes());
     }

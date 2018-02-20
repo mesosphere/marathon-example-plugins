@@ -1,17 +1,17 @@
 package mesosphere.marathon.example.plugin.javaauth;
 
-import mesosphere.marathon.plugin.auth.AuthorizedAction;
+import mesosphere.marathon.plugin.auth.*;
 
 /**
  * Enumeration for handling AuthorizedActions more easily in Java.
  */
 public enum Action {
 
-    CreateAppOrGroup(mesosphere.marathon.plugin.auth.CreateAppOrGroup$.MODULE$),
-    UpdateAppOrGroup(mesosphere.marathon.plugin.auth.UpdateAppOrGroup$.MODULE$),
-    DeleteAppOrGroup(mesosphere.marathon.plugin.auth.DeleteAppOrGroup$.MODULE$),
-    ViewAppOrGroup(mesosphere.marathon.plugin.auth.ViewAppOrGroup$.MODULE$),
-    KillTask(mesosphere.marathon.plugin.auth.KillTask$.MODULE$);
+    CreateAppOrGroup(CreateGroup$.MODULE$),
+    UpdateAppOrGroup(UpdateGroup$.MODULE$),
+    DeleteAppOrGroup(DeleteGroup$.MODULE$),
+    ViewAppOrGroup(ViewGroup$.MODULE$),
+    KillTask(DeleteGroup$.MODULE$);
 
     public static Action byAction(AuthorizedAction<?> action) {
         for (Action a : values()) {

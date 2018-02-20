@@ -25,7 +25,7 @@ object DCOSServiceLabelValidator {
   protected[ label ] lazy val appIsValid = new Validator[ ApplicationSpec ] {
     def apply(app: ApplicationSpec): Result = {
       if (app.labels.keySet.exists(forbiddenLabels.contains))
-        Failure(Set(RuleViolation(app.labels, s"An App label contains one or more DCOS LABELs ${forbiddenLabels} which is restricted", None)))
+        Failure(Set(RuleViolation(app.labels, s"An App label contains one or more DCOS LABELs ${forbiddenLabels} which is restricted")))
       else Success
     }
   }
